@@ -1,5 +1,6 @@
 .env.prod
-.env
+.env.prod.db
+.env.dev
 .vscode
 fragrance_ec2.pem
 *.pem
