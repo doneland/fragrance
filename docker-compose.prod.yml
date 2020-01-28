@@ -6,6 +6,8 @@ services:
       context: ./app
       dockerfile: Dockerfile.prod
     command: gunicorn fragrance.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - static_volume:/home/app/backend/staticfiles
     expose:
       - 8000
     env_file:
@@ -24,8 +26,11 @@ services:
     build: ./nginx
     ports:
       - 1337:80
+    volume:
+      - static_volume:/home/app/backend/staticfiles
     depends_on:
       - web
 
 volumes:
   postgres_data:
+  static_volume:
