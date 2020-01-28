@@ -26,7 +26,7 @@ services:
     build: ./nginx
     ports:
       - 1337:80
-    volume:
+    volumes:
       - static_volume:/home/app/backend/staticfiles
     depends_on:
       - web
